@@ -3,23 +3,22 @@ from cryptography.fernet import Fernet
 from pystyle import *
 import os
 
-# Було нудно, трохи про-апгрейдив
+# Just got bored, spiced it up a bit
 os.system("cls")
 
 os.system(f"title of Server - MADE by: Egwyl666")
 
-
-# Ключ для дешифрування
+# Decryption key
 key = b'5tlOpu2Bvib0m_yllgmzfhYVmonJNUR7bKCcdNh827Y='
 cipher_suite = Fernet(key)
 
-# Створення сокета
+# Creating a socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = 'localhost'  # Можна використовувати 127.0.0.1
+host = 'localhost'  # Can use 127.0.0.1
 port = 42424
 server_socket.bind((host, port))
 
-# Просто дуже гарно
+# Just looking pretty
 banner = '***Server is running***'
 
 server_socket.listen(5)
@@ -28,7 +27,7 @@ Write.Print(f"Server listening on {host}:{port}",
             Colors.blue_to_purple, interval=0.04)
 print()
 
-# Ну дуууже гарно
+# Really, really pretty
 
 while True:
     client_socket, address = server_socket.accept()
@@ -43,4 +42,4 @@ while True:
         print("Data decrypted and saved to 'recieved.txt'.")
 
     client_socket.close()
-    break  # Закриваємо з'єднання після отримання одного набору даних
+    break  # Closing the connection after receiving one set of data
